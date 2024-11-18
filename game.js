@@ -35,12 +35,22 @@ function create() {
         callback: generateResources,
         loop: true
     });
+
+    // クリックイベント
+    this.input.on('pointerdown', addGoldOnClick);
 }
 
 // リソース自動生成の処理
 function generateResources() {
     gold += 10; // ゴールドを増加
     food += 5;  // 食料を増加
+    updateUI();
+}
+
+// クリックでゴールドを増加
+function addGoldOnClick(pointer) {
+    gold += 20; // ゴールドを増加
+    console.log("クリックでゴールドを増やしました！");
     updateUI();
 }
 
